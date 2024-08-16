@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ccc;
+}
+
+.side-left {
+    width: 20%;
+    height: 90vh;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    background-color: #eee;
+}
+
+.side-right {
+    width: 80%;
+    height: 90vh;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    background-color: wheat;
+}

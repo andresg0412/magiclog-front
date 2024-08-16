@@ -1,17 +1,17 @@
 import React from "react";
 import FormLogin from "../../components/Login/FormLogin";
 import "./LoginPage.css";
-const LoginPage = () => {
+const RegisterPage = () => {
     return (
         <>
             <div className="container-login">
                 <FormLogin
-                    title="Iniciar Sesión"
-                    button="Iniciar Sesión"
+                    title="Formulario de registro"
+                    button="Registrate"
                 />
             </div>
         </>
     );
 };
 
-export default LoginPage;
+export default RegisterPage;

@@ -1,11 +1,22 @@
 import React from "react";
+import HeaderComponent from "../../components/Header/HeaderComponent";
 
 
 const AdminPage = () => {
     return (
-        <div>
-            <h1>Admin Page</h1>
-        </div>
+        <>
+        <HeaderComponent />
+        <div className="container">
+                <div className="side-left">
+                </div>
+
+                <div className="side-right">
+
+                    
+                </div>
+
+            </div>
+        </>
     );
 };
 
