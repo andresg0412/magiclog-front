@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeaderComponent from "../../components/Header/HeaderComponent";
 import MenuVendorComponent from "../../components/Menu/MenuVendorComponent";
 import ButtonComponent from "../../components/Button/ButtonComponent";
 import './VendorPage.css';
+import { check } from '../../services/authService';
+import { useSelector, useDispatch } from 'react-redux';
 
 const VendorPage = () => {
+    
     return (
         <>
-        <HeaderComponent />
-        <div className="container">
+            <HeaderComponent />
+            <div className="container">
                 <div className="side-left">
                     <MenuVendorComponent />
                 </div>
@@ -20,7 +23,7 @@ const VendorPage = () => {
                         classname="button primary"
                         type="button" />
 
-                    
+
                 </div>
 
             </div>

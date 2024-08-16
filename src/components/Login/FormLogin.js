@@ -10,7 +10,15 @@ const FormLogin = ({ children, ...props }) => {
     const handleonSubmit = (e) => {
         e.preventDefault();
 
-        console.log(email, password, confirmPassword);
+        if (props.confirmPassword) {
+            if (password === confirmPassword) {
+                props.handle(e, email, password);
+            } else {
+                alert('Las constraseñas no coinciden');
+            }
+        } else {
+            props.handle(e, email, password);
+        }
     }
 
     return (
