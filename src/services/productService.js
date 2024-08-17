@@ -19,3 +19,13 @@ export const getProductByVendor = async () => {
         throw error;
     }
 }
+
+export const createProduct = async (product) => {
+    try {
+        const response = await instance.post('/products', product);
+        return response.data;
+    } catch (error) {
+        console.error('Error creating product:', error);
+        throw error;
+    }
+}

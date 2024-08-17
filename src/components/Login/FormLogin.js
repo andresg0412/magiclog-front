@@ -14,7 +14,7 @@ const FormLogin = ({ children, ...props }) => {
             if (password === confirmPassword) {
                 props.handle(e, email, password);
             } else {
-                alert('Las constraseñas no coinciden');
+                props.setIsError(true);
             }
         } else {
             props.handle(e, email, password);
