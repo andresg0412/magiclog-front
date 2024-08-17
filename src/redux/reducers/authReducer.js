@@ -15,7 +15,7 @@ const authSlice = createSlice({
             state.user = action.payload.user;
             state.status = 'succeeded';
         },
-        logout: (state) => {
+        logoutSuccess: (state) => {
             state.isAuthenticated = false;
             state.user = null;
             state.status = 'idle';
@@ -31,5 +31,5 @@ const authSlice = createSlice({
     },
 });
 
-export const { loginSuccess, logout, loginFailure, checkAuth } = authSlice.actions;
+export const { loginSuccess, logoutSuccess, loginFailure, checkAuth } = authSlice.actions;
 export default authSlice.reducer;

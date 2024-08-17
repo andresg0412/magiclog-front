@@ -2,11 +2,19 @@ import React from "react";
 import Product from "./ProductComponent";
 import "./ListComponent.css";
 
-const ListComponent = () => {
+const ListComponent = ({ items }) => {
     return (
         <div>
             <h1>List Component</h1>
-            <Product />
+            {items && items.length > 0 ? (
+                items.map((item) => (
+                    <Product
+                        key={item.id}
+                        item={item} />
+                ))
+            ): (
+                <p>No hay productos</p>
+            )}
         </div>
     );
 };

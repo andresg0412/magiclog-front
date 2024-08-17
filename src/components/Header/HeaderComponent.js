@@ -1,8 +1,13 @@
 import React from "react";
 import ButtonComponent from "../Button/ButtonComponent";
 import "./HeaderComponent.css";
+import { useNavigate } from "react-router-dom";
 
-const HeaderComponent = () => {
+const HeaderComponent = ({ setOpenModalRegister }) => {
+    const navigate = useNavigate();
+    const handleClickModal = () => {
+        setOpenModalRegister(true);
+    }
     return (
         <header>
             <nav>
@@ -11,13 +16,13 @@ const HeaderComponent = () => {
                     <div>
                         <ButtonComponent
                             text="Iniciar Sesión"
-                            onClick={() => { }}
+                            onClick={() => {navigate('/login')}}
                             classname="button login"
                             type="button" />
 
                         <ButtonComponent
                             text="Registrate"
-                            onClick={() => { }}
+                            onClick={handleClickModal}
                             classname="button registro"
                             type="button" />
                     </div>

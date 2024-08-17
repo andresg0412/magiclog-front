@@ -1,25 +1,52 @@
 import React, { useState } from "react";
+import './FilterComponent.module.css';
 
 
-const FilterComponent = () => {
-    const [value, setValue] = useState(50); // Valor inicial del rango
-    const handleChange = (e) => {
-        setValue(e.target.value);
+const FilterComponent = ({ minPrice, maxPrice, minFilterChange, maxFilterChange }) => {
+    const [minValue, setMinValue] = useState(minPrice);
+    const [maxValue, setMaxValue] = useState(maxPrice); // Valor inicial del rango
+    const [filterMin, setFilterMin] = useState('');
+    const [filterMax, setFilterMax] = useState('');
+    const handleMinChange = (e) => {
+        setFilterMin(Number(e.target.value));
+        if (filterMin <= maxValue) {
+            setMinValue(filterMin);
+            minFilterChange(filterMin);
+        }
+    };
+
+
+    const handleMaxChange = (e) => {
+        setFilterMax(Number(e.target.value));
+        if ( filterMax >= minValue) {
+            setMaxValue(filterMax);
+            maxFilterChange(filterMax);
+        }
     };
     return (
         <>
-            <label htmlFor="rangeInput" className="block text-lg font-medium text-gray-700">
-                Valor: {value}
+            <label className="">
+                Minimo: {minValue}
+
+                <input
+                    type="range"
+                    min={minPrice}
+                    max={maxPrice}
+                    value={minValue}
+                    onChange={handleMinChange}
+                />
             </label>
-            <input
-                type="range"
-                id="rangeInput"
-                min="0"
-                max="100"
-                value={value}
-                onChange={handleChange}
-                className="mt-2 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-            />
+            <label className="">
+                Máximo: {maxValue}
+
+                <input
+                    type="range"
+                    min={minPrice}
+                    max={maxPrice}
+                    value={maxValue}
+                    onChange={handleMaxChange}
+                />
+            </label>
 
         </>
     );

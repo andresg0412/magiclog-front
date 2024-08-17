@@ -13,25 +13,6 @@ import { useSelector } from 'react-redux';
 import { check } from './services/authService';
 
 function App() {
-  const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const userAuth = async () => {
-      const user = await check(dispatch);
-      console.log('CREDENCIALES ENCONTRADAS')
-      console.log(user)
-      setIsLoading(false);
-    };
-
-    userAuth();
-
-  }, [dispatch]);
-
-  if (isLoading) {
-    // Puedes mostrar un spinner o algún indicador de carga mientras esperas
-    return <div>Loading...</div>;
-  }
 
   return (
     <Router>

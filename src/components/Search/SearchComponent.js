@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./SearchComponent.module.css";
 
 
-const SearchComponent = () => {
+const SearchComponent = ({ searchTerm, setSearchTerm, handleSearch, handleChange }) => {
+
     return (
         <>
             <form className={styles.search_form}>
@@ -27,10 +28,12 @@ const SearchComponent = () => {
                     </div>
                     <input
                         required
-                        placeholder="Search"
+                        placeholder="Buscar producto"
                         className={styles.search_input}
                         id="default-search"
                         type="search"
+                        value={searchTerm}
+                        onChange={handleChange}
                     />
                     <button className={styles.search_button}>
                         <svg
