@@ -1,5 +1,6 @@
 import instance from './axios';
 
+//OBTENER PRODUCTOS
 export const getProducts = async () => {
     try {
         const response = await instance.get('/products');
@@ -10,6 +11,7 @@ export const getProducts = async () => {
     }
 };
 
+//OBTENER PRODUCTOS POR VENDEDOR
 export const getProductByVendor = async () => {
     try{
         const response = await instance.get('/products/vendor');
@@ -20,6 +22,7 @@ export const getProductByVendor = async () => {
     }
 }
 
+//CREAR PRODUCTO
 export const createProduct = async (product) => {
     try {
         const response = await instance.post('/products', product);

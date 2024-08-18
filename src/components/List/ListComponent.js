@@ -7,16 +7,17 @@ const ListComponent = ({ items, isAdmin }) => {
         <div className="listComponent_container">
             <h1>Productos</h1>
             <div className="list_container">
-            {items && items.length > 0 ? (
-                items.map((item) => (
-                    <Product
-                        key={item.id}
-                        item={item}
-                        isAdmin={isAdmin}/>
-                ))
-            ): (
-                <p>No hay productos</p>
-            )}
+
+                {items && items.length > 0 ? (
+                    items.map((item) => (
+                        <Product
+                            key={item.id}
+                            item={item}
+                            isAdmin={isAdmin} />
+                    ))
+                ) : (
+                    <p>No hay productos</p>
+                )}
             </div>
         </div>
     );

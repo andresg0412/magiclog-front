@@ -22,10 +22,12 @@ const AdminPage = () => {
     const [isAdmin, setIsAdmin] = useState(true);
 
 
+    //VERIFICAR SI EL USUARIO ES ADMIN
     useEffect(() => {
         sessionStorage.getItem('role') === 'admin' ? setIsAuthorized(true) : setIsAuthorized(false);
     }, [isAutorized]);
 
+    //OBTENER LISTADO DE VENDEDORES
     useEffect(() => {
         const fetchVendors = async () => {
             var response = []
@@ -43,6 +45,7 @@ const AdminPage = () => {
         fetchVendors();
     }, []);
 
+    //OBTENER LISTADO DE PRODUCTOS
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -57,6 +60,9 @@ const AdminPage = () => {
 
         fetchProducts();
     }, [dispatch]);
+
+
+    //FILTRAR PRODUCTOS
     useEffect(() => {
         const filtered = products.filter((product) =>
             selectedVendors.length === 0 || selectedVendors.includes(product.vendorId)
@@ -65,6 +71,7 @@ const AdminPage = () => {
         setProductsList(filtered);
     }, [products, selectedVendors]);
 
+    //FUNCION PARA SELECCIONAR VENDEDORES
     const handleCheckboxChange = (vendorId) => {
         if (selectedVendors.includes(vendorId)) {
             setSelectedVendors(selectedVendors.filter((id) => id !== vendorId));
@@ -101,7 +108,7 @@ const AdminPage = () => {
                 <div className={styles.side_right_admin}>
                     <ListComponent
                         items={productsList}
-                        isAdmin={isAdmin}/>
+                        isAdmin={isAdmin} />
                 </div>
 
             </div>
