@@ -21,13 +21,10 @@ const ModalCreateProduct = ({ handleCloseModal, handleIsCreated }) => {
         }
 
     };
-
-    
-
     return (
         <>
-            <div className="container_modal">
-                <div className="modal">
+            <div className="container_modal_create">
+                <div className="modal_create">
                     <span class="close-button" onClick={handleCloseModal}>&times;</span>
                     <FormCreateProduct
                         name={name}

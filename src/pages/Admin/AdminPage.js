@@ -7,20 +7,23 @@ import { useSelector } from "react-redux";
 import { getProducts } from "../../services/productService";
 import { setProducts } from "../../redux/reducers/productReducer";
 import { getVendors } from "../../services/adminServices";
+import styles from "./AdminPage.module.css";
 
 const AdminPage = () => {
     const [isAutorized, setIsAuthorized] = useState(false);
     const products = useSelector((state) => state.products.items);
     const dispatch = useDispatch();
+    const userEmail = sessionStorage.getItem('email');
     const [productsList, setProductsList] = useState([]);
     const [vendors, setVendors] = useState([]);
     const [selectedVendors, setSelectedVendors] = useState([]);
     const [searchingVendor, setSearchingVendor] = useState(true);
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [isAdmin, setIsAdmin] = useState(true);
 
 
     useEffect(() => {
-        localStorage.getItem('role') === 'admin' ? setIsAuthorized(true) : setIsAuthorized(false);
+        sessionStorage.getItem('role') === 'admin' ? setIsAuthorized(true) : setIsAuthorized(false);
     }, [isAutorized]);
 
     useEffect(() => {
@@ -54,7 +57,6 @@ const AdminPage = () => {
 
         fetchProducts();
     }, [dispatch]);
-
     useEffect(() => {
         const filtered = products.filter((product) =>
             selectedVendors.length === 0 || selectedVendors.includes(product.vendorId)
@@ -78,9 +80,12 @@ const AdminPage = () => {
     }
     return (
         <>
-            <HeaderComponent />
-            <div className="container">
-                <div className="side-left">
+            <HeaderComponent
+                role="admin"
+                email={userEmail}
+            />
+            <div className={styles.container_admin}>
+                <div className={styles.side_left_admin}>
                     {searchingVendor ? (
                         <p>Buscando...</p>
                     ) : (
@@ -93,9 +98,10 @@ const AdminPage = () => {
 
                 </div>
 
-                <div className="side-right">
+                <div className={styles.side_right_admin}>
                     <ListComponent
-                        items={productsList} />
+                        items={productsList}
+                        isAdmin={isAdmin}/>
                 </div>
 
             </div>

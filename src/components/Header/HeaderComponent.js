@@ -15,7 +15,7 @@ const HeaderComponent = ({ setOpenModalRegister, role, email }) => {
                     <div><h2>LOGO</h2></div>
                     <div>
                         {role === 'admin' || role === 'Vendedor' ? (
-                            <div>
+                            <div className="user-info">
                                 <p>{role}</p>
                                 <p>{email}</p>
                             </div>

@@ -1,6 +1,8 @@
 .form_container {
     width: fit-content;
     height: fit-content;
+    margin-left: 5px;
+    margin-right: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,7 +90,7 @@
     background-color: transparent;
 }
 
-.sign-in_btn {
+.signin_btn {
     width: 100%;
     height: 40px;
     border: 0;

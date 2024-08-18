@@ -1,0 +1,22 @@
+@import '../../styles/colors.css';
+
+.listComponent_container{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.list_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+@media screen and (min-width: 768px) {
+    .list_container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+    
+}

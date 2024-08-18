@@ -20,6 +20,7 @@ const HomePage = () => {
     const [maxPrice, setMaxPrice] = useState(400000);
     const [openModalRegister, setOpenModalRegister] = useState(false);
 
+    //OBTENER PRODUCTOS DE API
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -31,16 +32,11 @@ const HomePage = () => {
                 console.log(error);
             }
         }
-
         fetchProducts();
     }, [dispatch]);
 
-    //const handleSearch = () => {
-    //    const filteredProducts = productsList.filter((product) =>
-    //        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    //    );
-    //    setProductsList(filteredProducts);
-    //};
+
+    //FUNCIONALIDAD PARA BUSCADOR
     useEffect(() => {
         if (searchTerm === '') {
             setProductsList(products); // Resetear lista de productos si no hay término de búsqueda
@@ -52,19 +48,16 @@ const HomePage = () => {
         }
     }, [searchTerm, products]);
 
+    //CONTROLADORES DE INPUT RANGO
     const handleMinFilterChange = (minValue) => {
         setMinPrice(minValue);
-
     };
-
     const handleMaxFilterChange = (maxValue) => {
         setMaxPrice(maxValue);
     };
-
     const handleChange = (e) => {
         setSearchTerm(e.target.value);
     };
-
     const handleCloseModal = () => {
         setOpenModalRegister(false);
     };

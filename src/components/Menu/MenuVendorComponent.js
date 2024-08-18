@@ -1,15 +1,16 @@
 import React from "react";
-
+import styles from "./MenuVendorComponent.module.css";
+import { Link } from "react-router-dom";
 
 const MenuVendorComponent = () => {
     return (
         <>
-            <div className="menu-vendor">
+            <div className={styles.menu_vendor}>
                 <ul>
-                    <li><a href="/vendor">Dashboard</a></li>
-                    <li><a href="/vendor">Cotizaciones</a></li>
-                    <li><a href="/vendor">Ordenes</a></li>
-                    <li><a href="/vendor">Inventario</a></li>
+                    <li><Link href="/vendor">Dashboard</Link></li>
+                    <li><Link href="/vendor">Cotizaciones</Link></li>
+                    <li><Link href="/vendor">Ordenes</Link></li>
+                    <li><Link href="/vendor">Inventario</Link></li>
                 </ul>
             </div>
         </>

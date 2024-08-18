@@ -1,4 +1,6 @@
 import React from "react";
+import styles from "./FormCreateProduct.module.css";
+import ButtonComponent from "../Button/ButtonComponent";
 
 const FormCreateProduct = ({ ...props }) => {
     return (
@@ -9,11 +11,11 @@ const FormCreateProduct = ({ ...props }) => {
                     <div>
                         <h2>Crear Producto</h2>
                         <form onSubmit={props.handleCreateProduct}>
-                            <div className="form-group">
+                            <div className={styles.form_group}>
                                 <label htmlFor="name">Nombre</label>
                                 <input
                                     type="text"
-                                    className="form-control"
+                                    className={styles.form_control}
                                     id="name"
                                     placeholder="Escriba el nombre del producto"
                                     value={props.name}
@@ -21,11 +23,11 @@ const FormCreateProduct = ({ ...props }) => {
                                     required
                                 />
                             </div>
-                            <div className="form-group">
+                            <div className={styles.form_group}>
                                 <label htmlFor="price">Precio</label>
                                 <input
                                     type="text"
-                                    className="form-control"
+                                    className={styles.form_control}
                                     id="price"
                                     placeholder="Escriba el precio del producto"
                                     value={props.price}
@@ -33,11 +35,11 @@ const FormCreateProduct = ({ ...props }) => {
                                     required
                                 />
                             </div>
-                            <div className="form-group">
+                            <div className={styles.form_group}>
                                 <label htmlFor="quantity">Cantidad</label>
                                 <input
                                     type="number"
-                                    className="form-control"
+                                    className={styles.form_control}
                                     id="quantity"
                                     placeholder="Escriba la cantidad"
                                     value={props.quantity}
@@ -45,11 +47,11 @@ const FormCreateProduct = ({ ...props }) => {
                                     required
                                 />
                             </div>
-                            <div className="form-group">
+                            <div className={styles.form_group}>
                                 <label htmlFor="sku">SKU</label>
                                 <input
                                     type="number"
-                                    className="form-control"
+                                    className={styles.form_control}
                                     id="sku"
                                     placeholder="Escriba SKU"
                                     value={props.SKU}
@@ -58,9 +60,12 @@ const FormCreateProduct = ({ ...props }) => {
                                 />
                             </div>
 
-                            <button type="submit" className="btn btn-primary">
-                                Crear
-                            </button>
+                            <ButtonComponent
+                                text="Crear"
+                                classname="button registro"
+                                type="submit"
+                            />
+
                         </form>
                     </div>
                 </div>

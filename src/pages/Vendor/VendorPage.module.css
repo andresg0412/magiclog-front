@@ -4,21 +4,23 @@
     display: flex;
     flex-direction: column;
     padding: 1em;
+    padding-top: 0;
     gap: 1em;
 
 }
 
-.side-left {
-    order: 2;
+.side_left {
+    order: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1em;
+    margin: 0;
 }
 
-.side-right {
-    order: 1;
+.side_right {
+    order: 2;
     align-items: center;
     justify-content: center;
 }
@@ -29,15 +31,17 @@
         gap: 2em;
     }
 
-    .side-left {
+    .side_left {
         order: 1;
+        width: 30%;
         align-items: flex-start;
         justify-content: flex-start;
     }
 
-    .side-right {
+    .side_right {
         order: 2;
-        width: 100%;
+        width: 70%;
+        padding: 1.5em;
         align-items: flex-start;
         justify-content: flex-start;
     }

@@ -1,16 +1,23 @@
+/* MOBILE FIRST */
+@import "../../styles/colors.css";
+header{
+    margin: 0;
+}
+nav{
+    margin: 0;
+}
 .desktop{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ccc;
+    background-color: var(--color-background);
 }
-
-@media (max-width: 768px) {
-    .desktop{
-        display: none;
-    }
-
-    .mobile{
-        display: flex;
-    }
+.user-info{
+    gap: 10px;
+    color: var(--color-text-primary);
+    text-align: end;
+    margin-right: 12px;
+}
+.user-info p{
+    margin: 0;
 }

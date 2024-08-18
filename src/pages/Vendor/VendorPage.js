@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import HeaderComponent from "../../components/Header/HeaderComponent";
 import MenuVendorComponent from "../../components/Menu/MenuVendorComponent";
 import ButtonComponent from "../../components/Button/ButtonComponent";
-import './VendorPage.css';
+import styles from "./VendorPage.module.css";
 import { check } from '../../services/authService';
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutSuccess } from '../../redux/reducers/authReducer';
@@ -89,21 +89,20 @@ const VendorPage = () => {
                 role="Vendedor"
                 email={userEmail}
             />
-            <div className="container">
-                <div className="side-left">
+            <div className={styles.container}>
+                <div className={styles.side_left}>
                     <MenuVendorComponent />
                     <ButtonComponent
                         text="Cerrar Sesion"
                         onClick={handleLogout}
-                        classname="button"
+                        classname="button logout"
                         type="button" />
                 </div>
-
-                <div className="side-right">
+                <div className={styles.side_right}>
                     <ButtonComponent
                         text="Crear"
                         onClick={handleOpenModalCreateProduct}
-                        classname="button primary"
+                        classname="button crear-producto"
                         type="button" />
 
                     {noProducts ? (
